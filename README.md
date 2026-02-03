@@ -39,5 +39,21 @@ Post-processing & safety checks
 Response back to user
 ```
 
+## Step 2: AWS deployment strategy
+We'll start with a single-node setup (one GPU instance) for MVP/early production.
+Later, we can scale to multi-gpu or auto-scaling when traffic grows.
 
-```
+### Recommendation for MVP:
+**g6.xlarge (1x NVIDIA L4 24GB)**:
+- Very good price/performance for 7B models in 4-bit
+- Can run Qwen2.5-7B comfortably with vLLM + continuous batching
+- Expected throughput: 100-250 tokens (depending on the settings)
+- Should handle 1000-3000 concurrent chats/day with good latency
+If g6.xlarge is not available in your region, use g5.xlarge or g5.2xlarge.
+
+### Cost-saving plan:
+- Use Saving Plan (1-year or 3-year) -> 30%-60% off on demand
+- Use spot instances for non-critical testing/training -> 60%-90% cheaper
+- Run inference only during business hours + scale-to-zero for off-hours (if using SageMaker)
+  
+
