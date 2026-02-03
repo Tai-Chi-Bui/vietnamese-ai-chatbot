@@ -39,29 +39,5 @@ Post-processing & safety checks
 Response back to user
 ```
 
-### Alternative (more compact & linear version):
 
-```markdown
-User (Zalo / Web / FB Messenger)
-→
-[Frontend / Webhook]  
-(simple web interface + Zalo/FB integration)
-→
-[API Gateway / Load Balancer]  
-(AWS API Gateway or Application Load Balancer)
-→
-vLLM inference server (OpenAI-compatible endpoint)
-→
-Qwen2.5-7B-Instruct + LoRA adapter  
-(fine-tuned on fashion data)
-→
-RAG pipeline:
-  • Vector DB (product catalog + FAQs + policies)  
-  • Real-time order lookup (via database connector)  
-  • Query rewriting + re-ranking  
-  • Strict faithfulness guardrail
-→
-Post-processing & safety checks
-→
-Response back to user
 ```
