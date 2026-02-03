@@ -1,4 +1,3 @@
-```markdown
 # FashionVN Assistant - End-to-End Production Guide
 **Realistic Vietnamese Fashion E-commerce AI Chatbot (2026)**
 
@@ -287,4 +286,3 @@ async def zalo_webhook(request: dict):
 
 **Next Action**: Start with Step 3 (launch AWS instance) and collect your first 200 FAQ examples.
 
-```
